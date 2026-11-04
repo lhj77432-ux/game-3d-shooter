@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
+  <title>3D 射击闯关</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div id="overlay-start" class="overlay">
+    <div class="panel">
+      <h1>3D 射击闯关</h1>
+      <p class="sub">一步一步通关 · 本机可玩</p>
+      <div id="level-select" class="level-grid"></div>
+      <p class="hint desktop-only">桌面：点击关卡后 WASD 移动 · 鼠标瞄准 · 左键射击 · R 换弹</p>
+      <p class="hint mobile-only">手机：左摇杆移动 · 右半屏拖动瞄准 · 开火键射击</p>
+      <button id="btn-reset-progress" class="btn ghost">清除进度</button>
+    </div>
+  </div>
+
+  <div id="overlay-pause" class="overlay hidden">
+    <div class="panel">
+      <h2>已暂停</h2>
+      <button id="btn-resume" class="btn">继续</button>
+      <button id="btn-menu" class="btn ghost">返回选关</button>
+    </div>
+  </div>
+
+  <div id="overlay-clear" class="overlay hidden">
+    <div class="panel">
+      <h2 id="clear-title">关卡通过！</h2>
+      <p id="clear-msg"></p>
+      <button id="btn-next" class="btn">下一关</button>
+      <button id="btn-menu2" class="btn ghost">返回选关</button>
+    </div>
+  </div>
+
+  <div id="overlay-fail" class="overlay hidden">
+    <div class="panel">
+      <h2>挑战失败</h2>
+      <p id="fail-msg">生命耗尽</p>
+      <button id="btn-retry" class="btn">重试本关</button>
+      <button id="btn-menu3" class="btn ghost">返回选关</button>
+    </div>
+  </div>
+
+  <div id="hud" class="hidden">
+    <div class="hud-top">
+      <div class="hud-item"><span class="label">关卡</span> <span id="hud-level">1</span></div>
+      <div class="hud-item"><span class="label">目标</span> <span id="hud-objective">—</span></div>
+      <div class="hud-item hidden" id="hud-timer-wrap"><span class="label">剩余</span> <span id="hud-timer">60</span>s</div>
+    </div>
+    <div class="crosshair" id="crosshair">+</div>
+    <div class="hud-bottom">
+      <div class="bar-wrap">
+        <span class="label">生命</span>
+        <div class="bar"><div id="bar-hp" class="bar-fill hp"></div></div>
+        <span id="hud-hp">100</span>
+      </div>
+      <div class="ammo-wrap">
+        <span class="label">弹药</span>
+        <span id="hud-ammo">30 / 90</span>
+      </div>
+      <button id="btn-pause" class="btn small" type="button">暂停</button>
+    </div>
+  </div>
+
+  <div id="mobile-controls" class="hidden">
+    <div id="joystick" class="joystick">
+      <div id="joy-knob" class="joy-knob"></div>
+    </div>
+    <div id="look-zone" class="look-zone"></div>
+    <button id="btn-fire" class="btn-fire" type="button">开火</button>
+    <button id="btn-reload" class="btn-reload" type="button">换弹</button>
+  </div>
+
+  <canvas id="c"></canvas>
+
+  <script type="importmap">
+  {
+    "imports": {
+      "three": "https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.module.js",
+      "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.160.0/examples/jsm/"
+    }
+  }
+  </script>
+  <script type="module" src="game.js"></script>
+</body>
+</html>
