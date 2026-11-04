@@ -1,40 +1,40 @@
-# 3D 射击闯关
+# 暗区突袭 · 3D 射击闯关 (v2)
 
-简易 3D 射击闯关（Three.js），桌面 + 手机触控，10 关逐步解锁。静态托管，无账号、不接 DeepSeek。
+十关递进的本机／公网可玩 First-Person 射击小游戏。Three.js 单页，零后端，GitHub Pages 托管。
 
-## 在线玩（GitHub Pages）
+## 游玩
 
-预期地址（需在仓库 Settings → Pages 启用后生效）：
+- 公网：https://lhj77432-ux.github.io/game-3d-shooter/
+- 电脑：WASD 移动 · 鼠标瞄准 · 左键射击 · R 换弹 · Esc 暂停
+- 手机：左摇杆移动 · 右半屏拖视角 · 开火／换弹按钮
 
-**https://lhj77432-ux.github.io/game-3d-shooter/**
+## 关卡
 
-启用步骤（一次性）：
-1. 打开 https://github.com/lhj77432-ux/game-3d-shooter/settings/pages
-2. Build and deployment → Source：**Deploy from a branch**
-3. Branch：**main** / folder：**/ (root)** → Save
-4. 等 1～2 分钟后打开上面的链接
+1. 靶场教学（静止靶）  
+2. 开阔移动靶  
+3. 掩体走廊  
+4. 限弹两波  
+5. 中型头目  
+6. 近战冲锋巷  
+7. 高台俯射  
+8. 限时清场 60s  
+9. 混合编队  
+10. 终局头目 + 护卫  
 
-仓库：https://github.com/lhj77432-ux/game-3d-shooter
+进度保存在浏览器 `localStorage`（`darkzone_v2_progress`）。
+
+## 技术
+
+- Three.js 0.160（CDN import map）
+- WebAudio 合成音效（无版权素材）
+- 程序化网格材质／低多边形科幻军事风
+- 触控＋指针锁定双端输入
 
 ## 本地预览
 
 ```bash
-python3 -m http.server 8765
+python3 -m http.server 8765 --directory .
+# 打开 http://127.0.0.1:8765/
 ```
 
-浏览器打开 http://127.0.0.1:8765/
-
-## 操作
-
-**桌面**
-- WASD 移动 · 鼠标瞄准 · 左键射击 · R 换弹 · Esc 暂停
-
-**手机**
-- 左下摇杆移动 · 右半屏拖动瞄准 · 右下开火／换弹
-
-## 关卡（10 关顺序解锁）
-
-1. 教学：静止靶 · 2. 移动靶 · 3. 掩体侧移 · 4. 双波限弹 · 5. Boss
-6. 窄廊冲锋 · 7. 高台 · 8. 限时 60s · 9. 远程＋近战 · 10. 终关 Boss
-
-进度：`localStorage` 键 `game3d_shooter_progress_v1`
+勿与 `vocab-share` 混淆；本仓仅此小游戏。
